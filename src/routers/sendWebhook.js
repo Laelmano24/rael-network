@@ -70,7 +70,7 @@ router.get("/aGVsbG9sYWxhb21hbm9vawmaksjgdfdsd/:crypt", checkExecutor, limiter, 
         await axios.post(WEBHOOK_URL, {
             embeds: [
                 {
-                    title: "O usuário executou o Cartola Hub.",
+                    title: "O usuário executou o Rael Hub.",
                     color: 0x3498db,
                     fields: [
                         {
@@ -109,7 +109,7 @@ router.get("/aGVsbG9sYWxhb21hbm9vawmaksjgdfdsd/:crypt", checkExecutor, limiter, 
                     },
                     timestamp: new Date().toISOString(),
                     footer: {
-                        text: "Cartola hub logs"
+                        text: "Rael hub logs"
                     }
                 }
             ]
