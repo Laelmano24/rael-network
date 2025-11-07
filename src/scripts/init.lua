@@ -15,7 +15,7 @@ local a1 = "f7246ad"
 local ol = "8ecb1f2"
 local e5 = "b61a9"
 
-function to_base64(data)
+local function to_base64(data)
     local b = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
     return ((data:gsub('.', function(x) 
         local r,b='',x:byte()

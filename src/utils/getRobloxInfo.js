@@ -4,7 +4,7 @@ async function getNameMap(gameId) {
    try {
 
     const responseInfoMap = await axios.get(`https://games.roblox.com/v1/games?universeIds=${gameId}`)
-    res.json({ name: responseInfoMap.data.data[0].name })
+    return responseInfoMap.data.data[0].name
 
   } catch (error) {
     console.error('Erro ao buscar informações do mapa:', error.message)

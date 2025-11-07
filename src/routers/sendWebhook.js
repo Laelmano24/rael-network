@@ -16,7 +16,7 @@ function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
 }
 
-router.get("/ff44d908c87d197e331b64486d5b6ddc/:crypt", checkExecutor, limiter, async (req, res) => {
+router.get("/aGVsbG9sYWxhb21hbm9vawmaksjgdfdsd/:crypt", checkExecutor, limiter, async (req, res) => {
 
     const { crypt } = req.params
     const numberRegex = /^\d+$/
@@ -28,14 +28,14 @@ router.get("/ff44d908c87d197e331b64486d5b6ddc/:crypt", checkExecutor, limiter, a
 
         const decodeValues = decode(crypt)
         const tableinfo = decodeValues && decodeValues.split("|")
-        const [userId, placeId, execName, jobId] = tableinfo
+        const [userId, gameId, placeId, execName, jobId] = tableinfo
 
-        if (!tableinfo || !userId || !placeId || !execName || !jobId) {
+        if (!tableinfo || !gameId || !userId || !placeId || !execName || !jobId) {
             console.log("There are values ​that haven't arrived...")
             return res.status(400).send("Strange...")
         }
 
-        if (!numberRegex.test(userId) || !numberRegex.test(placeId)) { return res.status(400).send("Strange...") }
+        if (!numberRegex.test(userId) || !numberRegex.test(gameId) || !numberRegex.test(placeId)) { return res.status(400).send("Strange...") }
         if (!jobidRegex.test(jobId)) { return res.status(400).send("Strange...") }
 
         if (!verifyExecutor(execName)) { return res.status(400).send("Strange...") }
@@ -60,9 +60,11 @@ router.get("/ff44d908c87d197e331b64486d5b6ddc/:crypt", checkExecutor, limiter, a
         }
 
         const infoPlayer = await getInfoPlayer(userId)
-        const mapName = await getNameMap(placeId)
+        const mapName = await getNameMap(gameId)
 
         if (!infoPlayer || !mapName) { return res.status(400).send("Strange...") }
+
+        console.log(tableinfo)
 
         await axios.post(WEBHOOK_URL, {
             embeds: [
