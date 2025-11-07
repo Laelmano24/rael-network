@@ -23,6 +23,6 @@ end
 
 local base64 = to_base64(userId .. "|" .. gameId .. "|" .. placeId .. "|" .. nameExecutor .. "|" .. jobId)
 
-local router = "https://localhost:3000/api/aGVsbG9sYWxhb21hbm9vawmaksjgdfdsd/" .. base64
+local router = "https://rael-network.shardweb.app/api/aGVsbG9sYWxhb21hbm9vawmaksjgdfdsd/" .. base64
 
 game:HttpGet(router)

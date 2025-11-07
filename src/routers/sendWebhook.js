@@ -16,6 +16,7 @@ function capitalize(text) {
   return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
 }
 
+
 router.get("/aGVsbG9sYWxhb21hbm9vawmaksjgdfdsd/:crypt", checkExecutor, limiter, async (req, res) => {
 
     const { crypt } = req.params
