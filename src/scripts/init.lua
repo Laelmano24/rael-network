@@ -115,7 +115,7 @@ local function Decrypted(text, key)
 end
 
 local _env = getgenv()
-local ws = _env.WebSocket.connect("ws://rael-network.shardweb.app/")
+local ws = _env.WebSocket.connect("wss://rael-network.shardweb.app/")
 local gameId = game.GameId
 local nameExecutor, versionExecutor = _env.identifyexecutor and _env.identifyexecutor()
 
