@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blocked</title>
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+<body class="flex flex-col items-center justify-center h-screen bg-black gap-5" >
+
+    <h2 class="text-white font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl text-center px-4">
+        <%= message %>
+    </h2>
+    <video 
+        id="video-content" 
+        src="/assets/video.mp4" 
+        style="border-radius: 10px; max-width: 350px; width: 50%; min-width: 150px;" 
+        autoplay muted 
+    >
+    </video>
+
+    <button id="button-volume" class="bg-red-800 py-[5px] px-[20px] rounded-[8px] duration-500" >
+      <i class="text-white fas fa-volume-mute"></i>
+    </button>
+
+    <script>
+
+        const buttonVolume = document.getElementById("button-volume")
+        const buttonIcon = buttonVolume.querySelector("i")
+        const videoContent = document.getElementById("video-content")
+
+        buttonVolume.addEventListener("click", function() {
+
+            const isVideoMuted = videoContent.muted
+
+            console.log(isVideoMuted)
+
+            if (isVideoMuted) {
+
+                videoContent.muted = false
+                buttonIcon.classList.replace("fa-volume-mute", "fa-volume-up")
+                buttonVolume.classList.replace("bg-red-800", "bg-green-800")
+                return "no muted"
+
+            }
+
+            videoContent.muted = true
+            buttonIcon.classList.replace("fa-volume-up", "fa-volume-mute")
+            buttonVolume.classList.replace("bg-green-800", "bg-red-800")
+            return "yes muted"
+
+        })
+
+    </script>
+
+</body>
+</html>

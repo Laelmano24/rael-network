@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rael hub</title>
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+    <div class="grid-background"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <header class="container-header" >
+        <h1><a href="/">Rael hub</a></h1>
+        <span>🟢 <%= users.length %> <a href="/dashboard/users">users</a></span>
+    </header>
+
+    
+    <main class="container-main" >
+        
+        <h1 class="dashboard-title" >Welcome, <%= username %></h1>
+
+        <div class="players-container" >
+
+            <% if (users) { %>
+                <% for ( let { userId, gameId, nameExecutor } of users ) { %>
+
+                    <form class="dashboard-player" action="/dashboard/users/<%= userId %>/kick" method="post">
+
+                        <div class="container-profile" >
+                            <img src="/assets/default.png" alt="Player imagem">
+                            <h3><a href="/dashboard/users/<%= userId %>" class="userId" ><%= userId %></a></h3>
+                            <h3 class="gameId" ><%= gameId %></h3>
+                            <h3><%= nameExecutor %></h3>
+                        </div>
+
+                        <div class="container-buttons" >
+                            <button type="submit" data-action="kick">Kick</button>
+                            <button type="submit" data-action="kill">Kill</button>
+                        </div>
+                        
+                    </form>
+                    
+                <% } %>
+            <% } %>
+
+        </div>
+        
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="/scripts/users.js"></script>
+    <script src="/scripts/particles.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rael Hub</title>
+    <link rel="shortcut icon" href="/assets/logo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="/css/background.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/dashboard.css">
+</head>
+
+<body>
+
+    <div id="particles-js"></div>
+    <div class="grid-background"></div>
+    <div class="glow glow-1"></div>
+    <div class="glow glow-2"></div>
+
+    <div class="container-main" >
+
+        <% if (user) { %>
+            <h1 class="dashboard-title">Welcome, <%= username %></h1>
+
+            <form class="dashboard-player-main" action="/" method="post">
+                <img src="/assets/default.png" alt="Player imagem">
+                <h3><%= user %></h3>
+                <textarea class="dashboard-textarea" placeholder="Mensagem"></textarea>
+                <button type="submit">Send</button>
+            </form>
+        <% } else { %>
+            <h1 class="dashboard-title">O usuário não existe.</h1>
+        <% } %>
+        
+    </div>
+        
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+    <script src="/scripts/user.js"></script>
+    <script src="/scripts/particles.js"></script>
+</body>
+</html>

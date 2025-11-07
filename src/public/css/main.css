@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;700&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: #0a0a0a;
+    --foreground: #e0e0e0;
+    --card: #151515;
+    --primary: #1dd283;
+    --secondary: #1a1a1a;
+    --muted: #888888;
+    --accent: #1dd2837d;
+    --btn-bg: #11a565;
+    --btn-bg-hover: #0d8b55;
+    --text-shadow: #1dd283b3;
+    --box-shadow: #1dd28333;
+    --border-color: #1dd2837d;
+}
+
+#particles-js {
+
+    position: fixed;
+    top: 0; 
+    left: 0;
+    height: 100vh; 
+    width: 100vw; 
+    z-index: -2;
+
+}
+
+::-webkit-scrollbar {
+    height: 8px;
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+    box-shadow: inset 0 0 2px var(--background);
+    transition: background-color 0.3s ease;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: var(--accent);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--background);
+}
